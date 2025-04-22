@@ -1,0 +1,23 @@
+/*
+Theme name: Nebula gaming
+Text domain: nebula-gaming
+Description: A gaming theme for WordPress.
+Author: Finn Siepers
+*/
+
+@font-face {
+    font-family: "Audiowide";
+    src: url("fonts/Audiowide-Regular.ttf") format("truetype"), url("fonts/Audiowide-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "orbitron";
+    src: url("fonts/Orbitron-VariableFont_wght.ttf") format("truetype"), url("fonts/Orbitron-VariableFont_wght.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  *{
+    font-family: orbitron, sans-serif;
+  }

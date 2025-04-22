@@ -1,3 +1,9 @@
+<?php
+/* 
+Template Name: Home
+*/
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,5 +15,10 @@
     <?php wp_head() ?>
 </head>
     <?php get_header(); ?>
+    <h1>sjsjsj</h1>
+    <div class="col-6">
+        <h1>hshsh</h1>
+    </div>
+    <p><?php the_content(); ?></p>
     <?php get_footer(); ?>
 </html>
