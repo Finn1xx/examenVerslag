@@ -15,10 +15,36 @@ Template Name: Home
     <?php wp_head() ?>
 </head>
     <?php get_header(); ?>
-    <h1>sjsjsj</h1>
-    <div class="col-6">
-        <h1>hshsh</h1>
-    </div>
-    <p><?php the_content(); ?></p>
+    <body>
+        <div class="homeBannerContainer container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1><?php the_title(); ?></h1>
+                </div>
+                <div class="col-12">
+                    <h3>
+                        <?php the_content(); ?>
+                        <a href="#homeContainer"><i class="ph ph-arrow-down"></i></a>
+                    </h3>
+                </div>
+    
+            </div>
+        </div>
+        <div id="homeContainer"class="homeContainer container-fluid">
+            <div class="row justify-content-evenly">
+                <div class="col-5">
+                    <h3><?php the_field('content_left'); ?></h3>
+                </div>
+                <div class="col-5">
+                    <h3><?php the_field('content_right'); ?></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3><?php the_field('content_bottom'); ?></h3>
+                </div>
+            </div>
+        </div>
+    </body>
     <?php get_footer(); ?>
 </html>

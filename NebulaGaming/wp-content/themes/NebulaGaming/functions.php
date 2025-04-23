@@ -19,7 +19,7 @@ function Nebula_style(){
 add_action('wp_enqueue_scripts', 'Nebula_style');
 
 register_nav_menus(array(
-    'main-menu' => "main-menu",
+    'primary' => "primary",
     'secondary' => "Secondary Menu"
 ));
 
