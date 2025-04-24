@@ -134,6 +134,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  animation: textPulse 3s infinite ease-in-out;
 }
 .homeBannerContainer .row .col-12 h1 a, .homeBannerContainer .row .col-12 h3 a {
   text-decoration: none !important;
@@ -167,10 +168,76 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   font-family: Orbitron, sans-serif !important;
   padding: 5rem 2rem 5rem 2rem !important;
 }
+.homeContainer .content-top-row .content-top-wrapper {
+  position: relative;
+  background-image: url("../NebulaGaming/assets/images/nebulagamingbanner2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  padding: 7rem;
+  height: 65vh;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(24, 216, 252, 0.3);
+}
+.homeContainer .content-top-row .content-top-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  z-index: 0;
+}
+.homeContainer .content-top-row .content-top-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146), rgb(24, 216, 252)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: borderAnimation 8s linear infinite;
+  z-index: 1;
+}
+.homeContainer .content-top-row .content-top-wrapper h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+  position: relative;
+  z-index: 2;
+}
+.homeContainer .content-top-row .content-top-wrapper h2 strong {
+  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+.homeContainer .content-top-row .content-top-wrapper h2 strong::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -3px;
+  left: 0;
+  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
+  border-radius: 5px;
+}
 .homeContainer .row {
   padding-bottom: 5rem;
 }
-.homeContainer .row:first-of-type .col-5 {
+.homeContainer .row.justify-content-evenly .col-5 {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   padding: 2rem;
@@ -179,7 +246,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
           backdrop-filter: blur(6px);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
-.homeContainer .row:first-of-type .col-5 h3 {
+.homeContainer .row.justify-content-evenly .col-5 h3 {
   font-size: 1.2rem;
   line-height: 1.7;
 }
@@ -206,6 +273,17 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   text-align: center;
 }
 
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 ._footer {
   background: linear-gradient(135deg, rgb(24, 216, 252), rgb(247, 47, 146));
   color: white;
@@ -263,4 +341,147 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   padding-top: 1rem;
   font-size: 0.9rem;
   color: #e1e1e1;
+}
+
+.contactContainer {
+  background: linear-gradient(180deg, rgba(24, 216, 252, 0.1), rgba(247, 47, 146, 0.1));
+  padding: 5rem 2rem;
+}
+.contactContainer h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+}
+.contactContainer p {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+.contactContainer form input, .contactContainer form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.contactContainer form input[type=submit] {
+  background-color: #f72f92;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.contactContainer form input[type=submit]:hover {
+  background-color: #18d8fc;
+  color: #000;
+}
+
+.aboutBannerContainer {
+  font-family: Orbitron, sans-serif !important;
+  background-image: url("../NebulaGaming/assets/images/nebulaaboutbanner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.aboutBannerContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.aboutBannerContainer .row {
+  height: 100vh !important;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aboutBannerContainer .row .col-9 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutBannerContainer .row .col-9 .about-banner-content {
+  text-align: center;
+}
+.aboutBannerContainer .row .col-9 .about-banner-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
+  animation: textPulse 3s infinite ease-in-out;
+}
+.aboutBannerContainer .row .col-9 .about-banner-content .banner-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+.aboutContentContainer {
+  font-family: Orbitron, sans-serif !important;
+  padding: 0rem 3rem 0rem 3rem;
+  background: rgba(46, 46, 120, 0.7);
+}
+.aboutContentContainer .row .col-12 .about-content {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 3rem;
+  color: #fff;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(24, 216, 252, 0.2);
+}
+.aboutContentContainer .row .col-12 .about-content .founder-section {
+  margin: 0;
+}
+.aboutContentContainer .row .col-12 .about-content .founder-section .founder-image-col {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.aboutContentContainer .row .col-12 .about-content .founder-section .founder-image-col .founder-image {
+  width: 100%;
+}
+.aboutContentContainer .row .col-12 .about-content .founder-section .founder-image-col .founder-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(247, 47, 146, 0.5);
+  border: 2px solid rgb(24, 216, 252);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.aboutContentContainer .row .col-12 .about-content .founder-section .founder-image-col .founder-image img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(24, 216, 252, 0.7);
+}
+.aboutContentContainer .row .col-12 .about-content .founder-section .founder-text-col {
+  display: flex;
+  align-items: center;
+}
+.aboutContentContainer .row .col-12 .about-content .founder-section .founder-text-col .founder-text {
+  text-align: center;
+  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 3;
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+
+@keyframes textPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+  }
 }/*# sourceMappingURL=style.css.map */

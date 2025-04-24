@@ -30,21 +30,29 @@ Template Name: Home
     
             </div>
         </div>
-        <div id="homeContainer"class="homeContainer container-fluid">
-            <div class="row justify-content-evenly">
-                <div class="col-5">
-                    <h3><?php the_field('content_left'); ?></h3>
-                </div>
-                <div class="col-5">
-                    <h3><?php the_field('content_right'); ?></h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <h3><?php the_field('content_bottom'); ?></h3>
-                </div>
+        <div id="homeContainer" class="homeContainer container-fluid">
+    <div class="row content-top-row">
+        <div class="col-12">
+            <div class="content-top-wrapper">
+                <h2><?php the_field('content_top'); ?></h2>
             </div>
         </div>
+    </div>
+    
+    <div class="row justify-content-evenly">
+        <div class="col-5">
+            <h3><?php the_field('content_left'); ?></h3>
+        </div>
+        <div class="col-5">
+            <h3><?php the_field('content_right'); ?></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3><?php the_field('content_bottom'); ?></h3>
+        </div>
+    </div>
+</div>
     </body>
     <?php get_footer(); ?>
 </html>
