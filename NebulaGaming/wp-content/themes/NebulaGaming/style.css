@@ -40,9 +40,21 @@ a {
 }
 
 header {
+  position: relative;
   background: linear-gradient(90deg, rgb(24, 216, 252) 0%, rgb(247, 47, 146) 100%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 1rem 0;
+}
+header .header-border {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146), rgb(24, 216, 252));
+  box-shadow: 0 0 15px rgba(247, 47, 146, 0.5);
+  animation: borderAnimation 8s linear infinite;
+  z-index: 5;
 }
 header .img-fluid {
   max-height: 100px;
@@ -484,4 +496,60 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   100% {
     text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
   }
+}
+.membersBanner {
+  background-image: url("../NebulaGaming/assets/images/nebulamemberbanner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.membersBanner .membersBannerContent {
+  text-align: center;
+}
+.membersBanner .membersBannerContent h3 {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.membersGrid {
+  padding: 4rem 2rem;
+}
+.membersGrid .memberCard {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.03);
+  margin-bottom: 2rem;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.membersGrid .memberCard:hover {
+  transform: translateY(-5px);
+}
+.membersGrid .memberCard h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.membersGrid .memberCard .memberPortrait {
+  margin: 1rem 0;
+}
+.membersGrid .memberCard .memberPortrait img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.membersGrid .memberCard h4 {
+  color: #18d8fc;
+  margin-bottom: 1rem;
+}
+.membersGrid .memberCard p {
+  font-size: 1rem;
+  line-height: 1.6;
 }/*# sourceMappingURL=style.css.map */

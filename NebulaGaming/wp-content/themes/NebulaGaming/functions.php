@@ -30,4 +30,33 @@ function ln_style_init( $init ) {
     return $init;
 }
 add_filter( 'tiny_mce_before_init', 'ln_style_init' );
+
+function nebula_register_member_cpt() {
+    $labels = array(
+        'name' => 'Members',
+        'singular_name' => 'Member',
+        'add_new' => 'Add New Member',
+        'add_new_item' => 'Add New Member',
+        'edit_item' => 'Edit Member',
+        'new_item' => 'New Member',
+        'view_item' => 'View Member',
+        'search_items' => 'Search Members',
+        'not_found' => 'No members found',
+        'not_found_in_trash' => 'No members found in trash',
+        'menu_name' => 'Members'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => false,
+        'rewrite' => array('slug' => 'members'),
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+    );
+
+    register_post_type('member', $args);
+}
+add_action('init', 'nebula_register_member_cpt');
+
 ?>

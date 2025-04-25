@@ -17,4 +17,5 @@
       </div>
     </div>
   </div>
+  <div class="header-border"></div>
 </header>
