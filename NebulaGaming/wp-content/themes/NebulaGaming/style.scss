@@ -655,3 +655,273 @@ header {
   }
   
 }
+
+
+// Matches Banner
+.matchesBannerContainer {
+  font-family: Orbitron, sans-serif !important;
+  background-image: url('../NebulaGaming/assets/images/nebulamatchbanner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .row {
+    height: 60vh !important;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .col-12 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      .matches-banner-content {
+        text-align: center;
+        
+        h1 {
+          font-size: 3.5rem;
+          font-weight: bold;
+          margin-bottom: 1.5rem;
+          color: white;
+          text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
+          animation: textPulse 3s infinite ease-in-out;
+        }
+        
+        span {
+          text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
+          animation: textPulse 3s infinite ease-in-out;
+          font-size: 1.2rem;
+          line-height: 1.6;
+          margin: 0 auto;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+// Matches Content
+.matchesContentContainer {
+  font-family: Orbitron, sans-serif !important;
+  padding: 5rem 0;
+  background: rgba(46, 46, 120, 0.7);
+  
+  h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(247, 47, 146, 0.5);
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, $blue, $pink);
+      margin-top: 0.5rem;
+      border-radius: 3px;
+    }
+  }
+  
+  // Left column - Matches List
+  .matches-list {
+    padding-right: 2rem;
+    
+    .match-card {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      color: #fff;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $blue, $pink);
+        opacity: 0.7;
+      }
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(247, 47, 146, 0.2);
+        border-color: rgba(24, 216, 252, 0.3);
+        
+        &::before {
+          animation: borderAnimation 8s linear infinite;
+        }
+      }
+      
+      .match-date {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: $blue;
+        font-weight: bold;
+      }
+      
+      .match-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: white;
+      }
+      
+      .match-meta {
+        display: flex;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        
+        .match-game, .match-team {
+          display: flex;
+          align-items: center;
+          
+          .meta-label {
+            font-weight: bold;
+            color: $pink;
+            margin-right: 0.5rem;
+          }
+          
+          .meta-value {
+            color: #ddd;
+          }
+        }
+      }
+      
+      .match-description {
+        color: #ccc;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+    }
+    
+    .no-matches {
+      padding: 2rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      color: #ddd;
+    }
+  }
+  
+  // Right column - Static Content
+  .matches-static-content {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    color: #fff;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, $pink, $blue);
+      opacity: 0.7;
+    }
+    
+    h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, $pink, $blue);
+        margin-top: 0.5rem;
+        border-radius: 3px;
+      }
+    }
+    
+    p {
+      color: #ddd;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    ul {
+      color: #ddd;
+      padding-left: 1.5rem;
+      
+      li {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}
+
+// Recent Matches Widget Styling (for the function output)
+.recent-matches-widget {
+  margin: 1.5rem 0;
+  
+  .recent-match-item {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(24, 216, 252, 0.2);
+    transition: all 0.3s ease;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .match-date {
+      font-size: 0.85rem;
+      color: $blue;
+      margin-bottom: 0.25rem;
+    }
+    
+    .match-meta {
+      font-size: 0.85rem;
+      color: #ddd;
+      
+      .match-game {
+        color: $pink;
+      }
+    }
+  }
+}

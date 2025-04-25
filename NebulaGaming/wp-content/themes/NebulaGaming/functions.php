@@ -59,4 +59,96 @@ function nebula_register_member_cpt() {
 }
 add_action('init', 'nebula_register_member_cpt');
 
+/**
+ * Register Custom Post Type for Matches
+ */
+function nebula_register_matches_post_type() {
+    $labels = array(
+        'name'               => 'Matches',
+        'singular_name'      => 'Match',
+        'menu_name'          => 'Matches',
+        'add_new'            => 'Add New Match',
+        'add_new_item'       => 'Add New Match',
+        'edit_item'          => 'Edit Match',
+        'new_item'           => 'New Match',
+        'view_item'          => 'View Match',
+        'search_items'       => 'Search Matches',
+        'not_found'          => 'No matches found',
+        'not_found_in_trash' => 'No matches found in Trash',
+    );
+
+    $args = array(
+        'labels'              => $labels,
+        'public'              => true,
+        'has_archive'         => true,
+        'publicly_queryable'  => true,
+        'query_var'           => true,
+        'rewrite'             => array('slug' => 'matches'),
+        'capability_type'     => 'post',
+        'hierarchical'        => false,
+        'supports'            => array('title', 'editor', 'thumbnail'),
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-calendar-alt',
+        'show_in_rest'        => true,
+    );
+
+    register_post_type('matches', $args);
+}
+add_action('init', 'nebula_register_matches_post_type');
+
+/**
+ * Function to display the 5 most recent matches
+ */
+function nebula_display_recent_matches($count = 5) {
+    $output = '';
+    
+    $args = array(
+        'post_type' => 'matches',
+        'posts_per_page' => $count,
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+    
+    $matches_query = new WP_Query($args);
+    
+    if ($matches_query->have_posts()) {
+        $output .= '<div class="recent-matches-widget">';
+        
+        while ($matches_query->have_posts()) {
+            $matches_query->the_post();
+            
+            $output .= '<div class="recent-match-item">';
+            $output .= '<h4>' . get_the_title() . '</h4>';
+            
+            if (function_exists('get_field')) {
+                // Add match date
+                if (get_field('match_date')) {
+                    $output .= '<div class="match-date">' . get_field('match_date') . '</div>';
+                }
+                
+                // Add game and team
+                $output .= '<div class="match-meta">';
+                if (get_field('game')) {
+                    $output .= '<span class="match-game">' . get_field('game') . '</span>';
+                }
+                if (get_field('team')) {
+                    $output .= '<span class="match-team"> | Team: ' . get_field('team') . '</span>';
+                }
+                $output .= '</div>';
+            }
+            
+            $output .= '</div>';
+        }
+        
+        $output .= '</div>';
+        wp_reset_postdata();
+    } else {
+        $output = '<p>No matches found</p>';
+    }
+    
+    return $output;
+}
+
+// Usage example: echo nebula_display_recent_matches();
+
 ?>
