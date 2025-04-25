@@ -5,7 +5,85 @@ Description: A gaming theme for WordPress.
 Author: Finn Siepers
 */
 
-// Fonts
+// Variables
+$blue: rgba(24,216,252,255);
+$pink: rgba(247,47,146,255);
+$bg-color: rgba(46,46,120,255);
+$dark-overlay: rgba(0, 0, 0, 0.5);
+$card-bg: rgba(0, 0, 0, 0.2);
+$white: #fff;
+$light-gray: #ddd;
+
+// Mixins
+@mixin gradient-bg($direction: 90deg) {
+  background: linear-gradient($direction, $blue, $pink);
+}
+
+@mixin gradient-border {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $pink, $blue);
+    opacity: 0.7;
+  }
+}
+
+@mixin card-style {
+  background: $card-bg;
+  border-radius: 12px;
+  padding: 2rem;
+  color: $white;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+@mixin banner-bg($img-path) {
+  background-image: url($img-path);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $dark-overlay;
+    z-index: 1;
+  }
+}
+
+@mixin text-glow {
+  text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
+  animation: textPulse 3s infinite ease-in-out;
+}
+
+@mixin heading-style {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: $white;
+  text-shadow: 0 0 10px rgba(247, 47, 146, 0.5);
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, $blue, $pink);
+    margin-top: 0.5rem;
+    border-radius: 3px;
+  }
+}
+
+// Font faces
 @font-face {
   font-family: "Audiowide";
   src: url("fonts/Audiowide-Regular.ttf") format("truetype");
@@ -20,6 +98,7 @@ Author: Finn Siepers
   font-style: normal;
 }
 
+// Global styles
 * {
   font-family: Audiowide, sans-serif;
   margin: 0;
@@ -27,28 +106,26 @@ Author: Finn Siepers
   box-sizing: border-box;
 }
 
-$blue: rgba(24,216,252,255);
-$pink: rgba(247,47,146,255);
-
 h1, h2, h3, h4, h5, h6 {
-  color: white;
+  color: $white;
 }
 
-body{
-  background-color: rgba(46,46,120,255);
+body {
+  background-color: $bg-color;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
+// Header
 header {
   position: relative;
-  background: linear-gradient(90deg, $blue 0%, $pink 100%);
+  @include gradient-bg();
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 1rem 0;
   
@@ -73,77 +150,70 @@ header {
     }
   }
 
-  .container-fluid {
-    .row {
+  .container-fluid .row {
+    align-items: center;
+
+    .col-5 {
+      display: flex;
       align-items: center;
 
-      .col-5 {
-        display: flex;
-        align-items: center;
-
-        a {
-          display: inline-block;
-        }
+      a {
+        display: inline-block;
       }
+    }
 
-      .col-7 {
+    .col-7 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      nav ul {
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
 
-        nav {
-          ul {
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-
-            li {
-              a {
-                position: relative;
-                display: inline-block;
-                padding: 0.5rem 1rem;
-                font-size: 1.2rem;
-                font-weight: 700;
-                text-decoration: none;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                color: #fff;
-                transition: all 0.3s ease;
-                border-radius: 8px;
-                z-index: 1;
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-            
-                &:hover {
-                  color: #000;
-                  background: rgba(255, 255, 255, 0.2);
-                  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 0 20px rgba(247, 47, 146, 0.5);
-                  backdrop-filter: blur(2px);
-                  font-weight: bold;
-                  scale: 1.05;
-                }
-            
-                &::after {
-                  content: "";
-                  position: absolute;
-                  left: 0;
-                  bottom: -4px;
-                  width: 100%;
-                  height: 2px;
-                  background: linear-gradient(90deg, $blue, $pink);
-                  opacity: 0;
-                  transform: scaleX(0);
-                  transition: transform 0.3s ease, opacity 0.3s ease;
-                  transform-origin: left;
-                  border-radius: 2px;
-                }
-            
-                &:hover::after {
-                  opacity: 1;
-                  transform: scaleX(1);
-                }
-              }
-            }
+        li a {
+          position: relative;
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          font-size: 1.2rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: $white;
+          transition: all 0.3s ease;
+          border-radius: 8px;
+          z-index: 1;
+          text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+      
+          &:hover {
+            color: #000;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 0 20px rgba(247, 47, 146, 0.5);
+            backdrop-filter: blur(2px);
+            font-weight: bold;
+            scale: 1.05;
+          }
+      
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, $blue, $pink);
+            opacity: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform-origin: left;
+            border-radius: 2px;
+          }
+      
+          &:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
           }
         }
       }
@@ -151,17 +221,17 @@ header {
   }
 }
 
+// Home Banner
 .homeBannerContainer {
   font-family: Orbitron, sans-serif !important;
-  background-image: url('../NebulaGaming/assets/images/nebulabackgroundbanner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  @include banner-bg('../NebulaGaming/assets/images/nebulabackgroundbanner.jpg');
   min-height: 85vh;
-  color: #fff;
+  color: $white;
 
   .row {
     height: 85vh !important;
+    position: relative;
+    z-index: 2;
 
     .col-12 {
       h1, h3 {
@@ -171,13 +241,12 @@ header {
         align-items: center;
         flex-direction: column;
         text-align: center;
-        animation: textPulse 3s infinite ease-in-out;
-
+        @include text-glow();
 
         a {
           text-decoration: none !important;
           font-size: 4rem;
-          color: white !important;
+          color: $white !important;
           transition: transform 0.3s ease;
 
           &:hover {
@@ -211,82 +280,65 @@ header {
   }
 }
 
+// Home Container
 .homeContainer {
   font-family: Orbitron, sans-serif !important;
   padding: 5rem 2rem 5rem 2rem !important;
 
-  .content-top-row {
+  .content-top-row .content-top-wrapper {
+    position: relative;
+    @include banner-bg('../NebulaGaming/assets/images/nebulagamingbanner2.jpg');
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 7rem;
+    height: 65vh;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(24, 216, 252, 0.3);
     
-    .content-top-wrapper {
-      position: relative;
-      background-image: url('../NebulaGaming/assets/images/nebulagamingbanner2.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid transparent;
       border-radius: 12px;
-      padding: 7rem;
-      height: 65vh;
-      overflow: hidden;
-      box-shadow: 0 0 25px rgba(24, 216, 252, 0.3);
+      background: linear-gradient(90deg, $blue, $pink, $blue) border-box;
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      animation: borderAnimation 8s linear infinite;
+      z-index: 1;
+    }
+    
+    h2 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-align: center;
+      color: $white;
+      text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+      position: relative;
+      z-index: 2;
       
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 12px;
-        z-index: 0;
-      }
-      
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border: 2px solid transparent;
-        border-radius: 12px;
-        background: linear-gradient(90deg, $blue, $pink, $blue) border-box;
-        -webkit-mask: 
-          linear-gradient(#fff 0 0) padding-box,
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out;
-        mask-composite: exclude;
-        animation: borderAnimation 8s linear infinite;
-        z-index: 1;
-      }
-      
-      h2 {
-        font-size: 2.2rem;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-        text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+      strong {
+        background: linear-gradient(90deg, $blue, $pink);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         position: relative;
-        z-index: 2;
         
-        strong {
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          bottom: -3px;
+          left: 0;
           background: linear-gradient(90deg, $blue, $pink);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          position: relative;
-          
-          &::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            bottom: -3px;
-            left: 0;
-            background: linear-gradient(90deg, $blue, $pink);
-            border-radius: 5px;
-          }
+          border-radius: 5px;
         }
       }
     }
@@ -295,27 +347,17 @@ header {
   .row {
     padding-bottom: 5rem;
 
-    &.justify-content-evenly {
-      .col-5 {
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 12px;
-        padding: 2rem;
-        color: #fff;
-        backdrop-filter: blur(6px);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    &.justify-content-evenly .col-5 {
+      @include card-style();
 
-        h3 {
-          font-size: 1.2rem;
-          line-height: 1.7;
-        }
+      h3 {
+        font-size: 1.2rem;
+        line-height: 1.7;
       }
     }
 
     &:last-of-type {
-      background-image: url('../NebulaGaming/assets/images/nebulabanner.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      @include banner-bg('../NebulaGaming/assets/images/nebulabanner.jpg');
       border-radius: 16px;
       overflow: hidden;
       padding: 4rem;
@@ -325,7 +367,7 @@ header {
         background-color: rgba(0, 0, 0, 0.5);
         padding: 2rem;
         border-radius: 12px;
-        color: white;
+        color: $white;
         display: flex;
         align-items: center;
 
@@ -338,21 +380,23 @@ header {
   }
 }
 
+// Animations
 @keyframes borderAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+@keyframes textPulse {
+  0% { text-shadow: 0 0 10px rgba(247, 47, 146, 0.7); }
+  50% { text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7); }
+  100% { text-shadow: 0 0 10px rgba(247, 47, 146, 0.7); }
+}
+
+// Footer
 ._footer {
-  background: linear-gradient(135deg, $blue, $pink);
-  color: white;
+  @include gradient-bg(135deg);
+  color: $white;
   padding: 3rem 0 1rem;
   font-family: Orbitron, sans-serif;
   position: relative;
@@ -364,7 +408,7 @@ header {
     h5 {
       font-size: 1.2rem;
       margin-bottom: 1rem;
-      color: #fff;
+      color: $white;
     }
 
     .footer-logo {
@@ -385,7 +429,7 @@ header {
         margin-bottom: 0.5rem;
 
         a {
-          color: white;
+          color: $white;
           text-decoration: none;
 
           &:hover {
@@ -402,7 +446,7 @@ header {
       padding: 0;
 
       li a {
-        color: white;
+        color: $white;
         font-size: 1.5rem;
         transition: color 0.3s ease;
 
@@ -421,6 +465,7 @@ header {
   }
 }
 
+// Contact
 .contactContainer {
   background: linear-gradient(180deg, rgba(24,216,252,0.1), rgba(247,47,146,0.1));
   padding: 5rem 2rem;
@@ -428,12 +473,12 @@ header {
   h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #fff;
+    color: $white;
   }
 
   p {
     font-size: 1.1rem;
-    color: #ddd;
+    color: $light-gray;
   }
 
   form {
@@ -444,43 +489,28 @@ header {
       border: none;
       border-radius: 8px;
       background-color: rgba(255, 255, 255, 0.1);
-      color: white;
+      color: $white;
     }
 
     input[type="submit"] {
-      background-color: #f72f92;
-      color: white;
+      background-color: $pink;
+      color: $white;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
 
       &:hover {
-        background-color: #18d8fc;
+        background-color: $blue;
         color: #000;
       }
     }
   }
 }
 
+// About Banner
 .aboutBannerContainer {
   font-family: Orbitron, sans-serif !important;
-  background-image: url('../NebulaGaming/assets/images/nebulaaboutbanner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-  }
+  @include banner-bg('../NebulaGaming/assets/images/nebulaaboutbanner.jpg');
   
   .row {
     height: 100vh !important;
@@ -502,8 +532,7 @@ header {
           font-size: 2.5rem;
           font-weight: bold;
           margin-bottom: 1.5rem;
-          text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
-          animation: textPulse 3s infinite ease-in-out;
+          @include text-glow();
         }
         
         .banner-text {
@@ -516,96 +545,77 @@ header {
   }
 }
 
-
+// About Content
 .aboutContentContainer {
   font-family: Orbitron, sans-serif !important;
-  padding: 0rem 3rem 0rem 3rem;
+  padding: 0 3rem;
   background: rgba(46, 46, 120, 0.7);
   
-  .row {
-    .col-12 {
-      .about-content {
-        background: rgba(0, 0, 0, 0.2);
-        padding: 3rem;
-        color: #fff;
-        backdrop-filter: blur(6px);
-        box-shadow: 0 0 20px rgba(24, 216, 252, 0.2);
+  .row .col-12 .about-content {
+    @include card-style();
+    
+    .founder-section {
+      margin: 0;
+      
+      .founder-image-col {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
         
-        .founder-section {
-          margin: 0;
+        .founder-image {
+          width: 100%;
           
-          .founder-image-col {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(247, 47, 146, 0.5);
+            border: 2px solid $blue;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             
-            .founder-image {
-              width: 100%;
-              
-              img {
-                width: 100%;
-                height: auto;
-                border-radius: 10px;
-                box-shadow: 0 0 15px rgba(247, 47, 146, 0.5);
-                border: 2px solid $blue;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                
-                &:hover {
-                  transform: scale(1.02);
-                  box-shadow: 0 0 20px rgba(24, 216, 252, 0.7);
-                }
-              }
+            &:hover {
+              transform: scale(1.02);
+              box-shadow: 0 0 20px rgba(24, 216, 252, 0.7);
             }
           }
-          
-          .founder-text-col {
-            display: flex;
-            align-items: center;
-            
-            .founder-text {
-                text-align: center;
-                background: linear-gradient(90deg, $blue, $pink);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                line-height: 3;
-                font-size: 1.4rem;
-                line-height: 1.8;
-            }
-          }
+        }
+      }
+      
+      .founder-text-col {
+        display: flex;
+        align-items: center;
+        
+        .founder-text {
+            text-align: center;
+            background: linear-gradient(90deg, $blue, $pink);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.4rem;
+            line-height: 1.8;
         }
       }
     }
   }
 }
 
-@keyframes textPulse {
-  0% {
-    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7);
-  }
-  100% {
-    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
-  }
-}
-
+// Members
 .membersBanner {
-  background-image: url('../NebulaGaming/assets/images/nebulamemberbanner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  @include banner-bg('../NebulaGaming/assets/images/nebulamemberbanner.jpg');
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  
   .membersBannerContent {
     text-align: center;
+    position: relative;
+    z-index: 2;
 
     h3 {
       font-size: 1.5rem;
       max-width: 800px;
       margin: 0 auto;
+      color: $white;
     }
   }
 }
@@ -619,7 +629,7 @@ header {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.03);
     margin-bottom: 2rem;
-    color: white;
+    color: $white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
   
@@ -644,7 +654,7 @@ header {
     }
   
     h4 {
-      color: #18d8fc;
+      color: $blue;
       margin-bottom: 1rem;
     }
   
@@ -653,30 +663,13 @@ header {
       line-height: 1.6;
     }
   }
-  
 }
-
 
 // Matches Banner
 .matchesBannerContainer {
   font-family: Orbitron, sans-serif !important;
-  background-image: url('../NebulaGaming/assets/images/nebulamatchbanner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  @include banner-bg('../NebulaGaming/assets/images/nebulamatchbanner.jpg');
   height: 90vh;
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-  }
   
   .row {
     height: 60vh !important;
@@ -698,18 +691,16 @@ header {
           font-size: 3.5rem;
           font-weight: bold;
           margin-bottom: 1.5rem;
-          color: white;
-          text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
-          animation: textPulse 3s infinite ease-in-out;
+          color: $white;
+          @include text-glow();
         }
         
         span {
-          text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
-          animation: textPulse 3s infinite ease-in-out;
+          @include text-glow();
           font-size: 1.2rem;
           line-height: 1.6;
           margin: 0 auto;
-          color: white;
+          color: $white;
         }
       }
     }
@@ -723,21 +714,7 @@ header {
   background: rgba(46, 46, 120, 0.7);
   
   h2 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    color: white;
-    text-shadow: 0 0 10px rgba(247, 47, 146, 0.5);
-    
-    &::after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 3px;
-      background: linear-gradient(90deg, $blue, $pink);
-      margin-top: 0.5rem;
-      border-radius: 3px;
-    }
+    @include heading-style();
   }
   
   // Left column - Matches List
@@ -745,13 +722,9 @@ header {
     padding-right: 2rem;
     
     .match-card {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
+      @include card-style();
       padding: 1.5rem;
       margin-bottom: 2rem;
-      color: #fff;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
       border: 1px solid transparent;
       transition: all 0.3s ease;
       position: relative;
@@ -788,7 +761,7 @@ header {
       .match-title {
         font-size: 1.5rem;
         margin-bottom: 0.75rem;
-        color: white;
+        color: $white;
       }
       
       .match-meta {
@@ -808,7 +781,7 @@ header {
           }
           
           .meta-value {
-            color: #ddd;
+            color: $light-gray;
           }
         }
       }
@@ -823,37 +796,22 @@ header {
     .no-matches {
       padding: 2rem;
       text-align: center;
-      background: rgba(0, 0, 0, 0.2);
+      background: $card-bg;
       border-radius: 12px;
-      color: #ddd;
+      color: $light-gray;
     }
   }
   
   // Right column - Static Content
   .matches-static-content {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    padding: 2rem;
-    color: #fff;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    @include card-style();
     height: 100%;
     position: relative;
     overflow: hidden;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, $pink, $blue);
-      opacity: 0.7;
-    }
+    @include gradient-border();
     
     h2 {
-      color: white;
+      color: $white;
       font-size: 2rem;
       margin-bottom: 1.5rem;
       
@@ -869,14 +827,14 @@ header {
     }
     
     p {
-      color: #ddd;
+      color: $light-gray;
       font-size: 1rem;
       line-height: 1.8;
       margin-bottom: 1.5rem;
     }
     
     ul {
-      color: #ddd;
+      color: $light-gray;
       padding-left: 1.5rem;
       
       li {
@@ -886,7 +844,7 @@ header {
   }
 }
 
-// Recent Matches Widget Styling (for the function output)
+// Recent Matches Widget
 .recent-matches-widget {
   margin: 1.5rem 0;
   
@@ -906,7 +864,7 @@ header {
     h4 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
-      color: white;
+      color: $white;
     }
     
     .match-date {
@@ -917,7 +875,7 @@ header {
     
     .match-meta {
       font-size: 0.85rem;
-      color: #ddd;
+      color: $light-gray;
       
       .match-game {
         color: $pink;

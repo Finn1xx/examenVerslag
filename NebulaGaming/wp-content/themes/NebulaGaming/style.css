@@ -24,7 +24,7 @@ Author: Finn Siepers
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: white;
+  color: #fff;
 }
 
 body {
@@ -41,7 +41,7 @@ a {
 
 header {
   position: relative;
-  background: linear-gradient(90deg, rgb(24, 216, 252) 0%, rgb(247, 47, 146) 100%);
+  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 1rem 0;
 }
@@ -90,7 +90,6 @@ header .container-fluid .row .col-7 nav ul li a {
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
   font-weight: 700;
-  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
@@ -133,11 +132,24 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
   min-height: 85vh;
   color: #fff;
 }
+.homeBannerContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
 .homeBannerContainer .row {
   height: 85vh !important;
+  position: relative;
+  z-index: 2;
 }
 .homeBannerContainer .row .col-12 h1, .homeBannerContainer .row .col-12 h3 {
   padding-left: 5rem;
@@ -146,12 +158,13 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
   animation: textPulse 3s infinite ease-in-out;
 }
 .homeBannerContainer .row .col-12 h1 a, .homeBannerContainer .row .col-12 h3 a {
   text-decoration: none !important;
   font-size: 4rem;
-  color: white !important;
+  color: #fff !important;
   transition: transform 0.3s ease;
 }
 .homeBannerContainer .row .col-12 h1 a:hover, .homeBannerContainer .row .col-12 h3 a:hover {
@@ -186,6 +199,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
   display: flex;
   align-items: center;
   border-radius: 12px;
@@ -201,9 +215,8 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  z-index: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 .homeContainer .content-top-row .content-top-wrapper::after {
   content: "";
@@ -225,7 +238,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   font-size: 2.2rem;
   font-weight: bold;
   text-align: center;
-  color: white;
+  color: #fff;
   text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
   position: relative;
   z-index: 2;
@@ -267,16 +280,27 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
   border-radius: 16px;
   overflow: hidden;
   padding: 4rem;
   height: 70vh;
 }
+.homeContainer .row:last-of-type::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
 .homeContainer .row:last-of-type .col-12 {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 2rem;
   border-radius: 12px;
-  color: white;
+  color: #fff;
   display: flex;
   align-items: center;
 }
@@ -296,9 +320,20 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
     background-position: 0% 50%;
   }
 }
+@keyframes textPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+  }
+}
 ._footer {
   background: linear-gradient(135deg, rgb(24, 216, 252), rgb(247, 47, 146));
-  color: white;
+  color: #fff;
   padding: 3rem 0 1rem;
   font-family: Orbitron, sans-serif;
   position: relative;
@@ -328,7 +363,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   margin-bottom: 0.5rem;
 }
 ._footer .footer-top .footer-menu li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 ._footer .footer-top .footer-menu li a:hover {
@@ -341,7 +376,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   padding: 0;
 }
 ._footer .footer-top .social-icons li a {
-  color: white;
+  color: #fff;
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
@@ -375,17 +410,17 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   border: none;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: #fff;
 }
 .contactContainer form input[type=submit] {
-  background-color: #f72f92;
-  color: white;
+  background-color: rgb(247, 47, 146);
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .contactContainer form input[type=submit]:hover {
-  background-color: #18d8fc;
+  background-color: rgb(24, 216, 252);
   color: #000;
 }
 
@@ -438,16 +473,17 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 
 .aboutContentContainer {
   font-family: Orbitron, sans-serif !important;
-  padding: 0rem 3rem 0rem 3rem;
+  padding: 0 3rem;
   background: rgba(46, 46, 120, 0.7);
 }
 .aboutContentContainer .row .col-12 .about-content {
   background: rgba(0, 0, 0, 0.2);
-  padding: 3rem;
+  border-radius: 12px;
+  padding: 2rem;
   color: #fff;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
-  box-shadow: 0 0 20px rgba(24, 216, 252, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 .aboutContentContainer .row .col-12 .about-content .founder-section {
   margin: 0;
@@ -481,39 +517,41 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 3;
   font-size: 1.4rem;
   line-height: 1.8;
 }
 
-@keyframes textPulse {
-  0% {
-    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7);
-  }
-  100% {
-    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
-  }
-}
 .membersBanner {
   background-image: url("../NebulaGaming/assets/images/nebulamemberbanner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.membersBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
 .membersBanner .membersBannerContent {
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 .membersBanner .membersBannerContent h3 {
   font-size: 1.5rem;
   max-width: 800px;
   margin: 0 auto;
+  color: #fff;
 }
 
 .membersGrid {
@@ -525,7 +563,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.03);
   margin-bottom: 2rem;
-  color: white;
+  color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
@@ -546,7 +584,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 .membersGrid .memberCard h4 {
-  color: #18d8fc;
+  color: rgb(24, 216, 252);
   margin-bottom: 1rem;
 }
 .membersGrid .memberCard p {
@@ -560,8 +598,8 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 90vh;
   position: relative;
+  height: 90vh;
 }
 .matchesBannerContainer::before {
   content: "";
@@ -593,7 +631,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  color: white;
+  color: #fff;
   text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
   animation: textPulse 3s infinite ease-in-out;
 }
@@ -603,7 +641,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   font-size: 1.2rem;
   line-height: 1.6;
   margin: 0 auto;
-  color: white;
+  color: #fff;
 }
 
 .matchesContentContainer {
@@ -614,8 +652,8 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 .matchesContentContainer h2 {
   font-size: 2.2rem;
   font-weight: bold;
-  margin-bottom: 2rem;
-  color: white;
+  margin-bottom: 1.5rem;
+  color: #fff;
   text-shadow: 0 0 10px rgba(247, 47, 146, 0.5);
 }
 .matchesContentContainer h2::after {
@@ -633,12 +671,13 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 .matchesContentContainer .matches-list .match-card {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 2rem;
   color: #fff;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
   border: 1px solid transparent;
   transition: all 0.3s ease;
   position: relative;
@@ -671,7 +710,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 .matchesContentContainer .matches-list .match-card .match-title {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
-  color: white;
+  color: #fff;
 }
 .matchesContentContainer .matches-list .match-card .match-meta {
   display: flex;
@@ -726,7 +765,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   opacity: 0.7;
 }
 .matchesContentContainer .matches-static-content h2 {
-  color: white;
+  color: #fff;
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -770,7 +809,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 .recent-matches-widget .recent-match-item h4 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: white;
+  color: #fff;
 }
 .recent-matches-widget .recent-match-item .match-date {
   font-size: 0.85rem;
