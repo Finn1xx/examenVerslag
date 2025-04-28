@@ -32,6 +32,19 @@ $light-gray: #ddd;
   }
 }
 
+// Animations
+@keyframes borderAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes textPulse {
+  0% { text-shadow: 0 0 10px rgba(247, 47, 146, 0.7); }
+  50% { text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7); }
+  100% { text-shadow: 0 0 10px rgba(247, 47, 146, 0.7); }
+}
+
 @mixin card-style {
   background: $card-bg;
   border-radius: 12px;
@@ -144,19 +157,9 @@ header {
   position: relative;
   @include gradient-bg();
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-size: 200% 200%;
+  animation: borderAnimation 5s linear infinite;
   padding: 1rem 0;
-  
-  .header-border {
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, $blue, $pink, $blue);
-    box-shadow: 0 0 15px rgba(247, 47, 146, 0.5);
-    animation: borderAnimation 8s linear infinite;
-    z-index: 5;
-  }
 
   .img-fluid {
     max-height: 100px;
@@ -327,6 +330,8 @@ header {
       border: 2px solid transparent;
       border-radius: 12px;
       background: linear-gradient(90deg, $blue, $pink, $blue) border-box;
+        background-size: 200% 200%;
+
       -webkit-mask: 
         linear-gradient(#fff 0 0) padding-box,
         linear-gradient(#fff 0 0);
@@ -407,18 +412,7 @@ header {
   }
 }
 
-// Animations
-@keyframes borderAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
-@keyframes textPulse {
-  0% { text-shadow: 0 0 10px rgba(247, 47, 146, 0.7); }
-  50% { text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7); }
-  100% { text-shadow: 0 0 10px rgba(247, 47, 146, 0.7); }
-}
 
 // Footer
 ._footer {
@@ -512,21 +506,20 @@ header {
     }
 
     input[type="submit"] {
-      background-color: $pink;
-      color: $white;
+      @include gradient-bg();
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      background-size: 200% 200%;
+      animation: borderAnimation 8s linear infinite;      color: $white;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-
-      &:hover {
-        background-color: $blue;
-        color: #000;
+      &:hover{
+        scale: 1.05;
       }
     }
   }
 }
 
-// About Banner
 .aboutBannerContainer {
   @include banner-bg('../NebulaGaming/assets/images/nebulaaboutbanner.jpg');
   
@@ -779,7 +772,8 @@ header {
         border-color: rgba(24, 216, 252, 0.3);
         
         &::before {
-          animation: borderAnimation 8s linear infinite;
+          background-size: 200% 200%;
+          animation: borderAnimation 2s linear infinite;
         }
       }
       

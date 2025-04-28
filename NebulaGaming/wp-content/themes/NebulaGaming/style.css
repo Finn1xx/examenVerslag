@@ -4,6 +4,28 @@ Text domain: nebula-gaming
 Description: A gaming theme for WordPress.
 Author: Finn Siepers
 */
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes textPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
+  }
+}
 @font-face {
   font-family: "Audiowide";
   src: url("fonts/Audiowide-Regular.ttf") format("truetype");
@@ -59,18 +81,9 @@ header {
   position: relative;
   background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-size: 200% 200%;
+  animation: borderAnimation 5s linear infinite;
   padding: 1rem 0;
-}
-header .header-border {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146), rgb(24, 216, 252));
-  box-shadow: 0 0 15px rgba(247, 47, 146, 0.5);
-  animation: borderAnimation 8s linear infinite;
-  z-index: 5;
 }
 header .img-fluid {
   max-height: 100px;
@@ -256,6 +269,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   border: 2px solid transparent;
   border-radius: 12px;
   background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146), rgb(24, 216, 252)) border-box;
+  background-size: 200% 200%;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
@@ -327,28 +341,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   text-align: center;
 }
 
-@keyframes borderAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes textPulse {
-  0% {
-    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(24, 216, 252, 0.8), 0 0 30px rgba(247, 47, 146, 0.7);
-  }
-  100% {
-    text-shadow: 0 0 10px rgba(247, 47, 146, 0.7);
-  }
-}
 ._footer {
   background: linear-gradient(135deg, rgb(24, 216, 252), rgb(247, 47, 146));
   color: #fff;
@@ -421,15 +413,17 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background-color: rgba(255, 255, 255, 0.1);
 }
 .contactContainer form input[type=submit] {
-  background-color: rgb(247, 47, 146);
+  background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-size: 200% 200%;
+  animation: borderAnimation 8s linear infinite;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .contactContainer form input[type=submit]:hover {
-  background-color: rgb(24, 216, 252);
-  color: #000;
+  scale: 1.05;
 }
 
 .aboutBannerContainer {
@@ -728,7 +722,8 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   border-color: rgba(24, 216, 252, 0.3);
 }
 .matchesContentContainer .matches-list .match-card:hover::before {
-  animation: borderAnimation 8s linear infinite;
+  background-size: 200% 200%;
+  animation: borderAnimation 2s linear infinite;
 }
 .matchesContentContainer .matches-list .match-card .match-date {
   font-size: 1rem;
