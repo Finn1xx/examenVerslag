@@ -20,7 +20,7 @@
         <ul class="social-icons">
           <li><a href="#"><i class="ph ph-twitch-logo"></i></a></li>
           <li><a href="#"><i class="ph ph-discord-logo"></i></a></li>
-          <li><a href="#"><i class="ph ph-twitter-logo"></i></a></li>
+          <li><a href="#"><i class="ph ph-x-logo"></i></a></li>
           <li><a href="#"><i class="ph ph-youtube-logo"></i></a></li>
         </ul>
       </div>

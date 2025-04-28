@@ -46,9 +46,9 @@ Template Name: About
                         <?php } ?>
                     </div>
                     <div class="col-7 founder-text-col">
-                        <div class="founder-text">
-                            <?php the_field('content'); ?>
-                        </div>
+    
+                            <p><?php the_field('content'); ?></p>
+                       
                     </div>
                 </div>
             </div>

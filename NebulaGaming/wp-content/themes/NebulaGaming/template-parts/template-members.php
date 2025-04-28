@@ -18,7 +18,10 @@ Template Name: members
     <div class="membersBanner container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="membersBannerContent"></div>
+            <div class="membersBannerContent">
+                <h1><?php the_title(); ?></h1>
+                <span><?php the_content() ?></span>
+            </div>
         </div>
     </div>
 </div>

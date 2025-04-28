@@ -295,6 +295,12 @@ header {
 // Home Container
 .homeContainer {
   padding: 5rem 2rem 5rem 2rem !important;
+  .col-5{
+    overflow: hidden;
+    position: relative;
+    @include gradient-border();
+
+  }
 
   .content-top-row .content-top-wrapper {
     position: relative;
@@ -433,7 +439,6 @@ header {
 
     .footer-tagline {
       font-size: 0.95rem;
-      color: #e1e1e1;
     }
 
     .footer-menu {
@@ -597,11 +602,7 @@ header {
         display: flex;
         align-items: center;
         
-        .founder-text {
-            text-align: center;
-            background: linear-gradient(90deg, $blue, $pink);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+       p {
             font-size: 1.4rem;
             line-height: 1.8;
         }
@@ -622,34 +623,53 @@ header {
     text-align: center;
     position: relative;
     z-index: 2;
-
-    h3 {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin: 0 auto;
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      @include text-glow();
     }
+      span {
+        @include text-glow();
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin: 0 auto;
+        color: $white;
+      }
   }
 }
 
 .membersGrid {
   padding: 4rem 2rem;
+  
 
   .memberCard {
+    position: relative;
+    overflow: hidden;
     text-align: center;
     padding: 2rem;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.03);
     margin-bottom: 2rem;
     color: $white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+
+    box-shadow: 0 0 15px rgba(247, 47, 146, 0.5);
+    border: 2px solid $blue;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @include gradient-border();
+
   
     &:hover {
       transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(24, 216, 252, 0.7);
+
     }
   
     h2 {
+      font-family: Audiowide, sans-serif !important;
+
       font-size: 2rem;
+      font-weight: bold;
       margin-bottom: 1rem;
     }
   
@@ -665,6 +685,7 @@ header {
     }
   
     h4 {
+      @include text-glow();
       margin-bottom: 1rem;
     }
   
