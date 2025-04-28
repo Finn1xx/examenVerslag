@@ -100,14 +100,27 @@ $light-gray: #ddd;
 
 // Global styles
 * {
-  font-family: Audiowide, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, a{
+  font-family: Audiowide, sans-serif !important;
+}
+
+strong{
+  font-family: Orbitron, sans-serif !important;
+
+}
+
+h1, h2, h3, h4, h5, h6, p, a{
   color: $white;
+  text-decoration: none;
+}
+
+p, h2{
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 body {
@@ -223,7 +236,6 @@ header {
 
 // Home Banner
 .homeBannerContainer {
-  font-family: Orbitron, sans-serif !important;
   @include banner-bg('../NebulaGaming/assets/images/nebulabackgroundbanner.jpg');
   min-height: 85vh;
   color: $white;
@@ -282,7 +294,6 @@ header {
 
 // Home Container
 .homeContainer {
-  font-family: Orbitron, sans-serif !important;
   padding: 5rem 2rem 5rem 2rem !important;
 
   .content-top-row .content-top-wrapper {
@@ -370,7 +381,7 @@ header {
       height: 70vh;
 
       .col-12 {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7);
         padding: 2rem;
         border-radius: 12px;
         color: $white;
@@ -404,7 +415,6 @@ header {
   @include gradient-bg(135deg);
   color: $white;
   padding: 3rem 0 1rem;
-  font-family: Orbitron, sans-serif;
   position: relative;
   z-index: 5;
 
@@ -412,14 +422,13 @@ header {
     margin-bottom: 2rem;
 
     h5 {
+      font-family: Audiowide, sans-serif !important;
       font-size: 1.2rem;
       margin-bottom: 1rem;
-      color: $white;
     }
 
-    .footer-logo {
-      max-width: 150px;
-      margin-bottom: 1rem;
+    img {
+      max-width: 250px;
     }
 
     .footer-tagline {
@@ -435,8 +444,6 @@ header {
         margin-bottom: 0.5rem;
 
         a {
-          color: $white;
-          text-decoration: none;
 
           &:hover {
             color: #000;
@@ -452,7 +459,6 @@ header {
       padding: 0;
 
       li a {
-        color: $white;
         font-size: 1.5rem;
         transition: color 0.3s ease;
 
@@ -479,7 +485,6 @@ header {
   h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: $white;
   }
 
   p {
@@ -495,7 +500,6 @@ header {
       border: none;
       border-radius: 8px;
       background-color: rgba(255, 255, 255, 0.1);
-      color: $white;
     }
 
     input[type="submit"] {
@@ -515,7 +519,6 @@ header {
 
 // About Banner
 .aboutBannerContainer {
-  font-family: Orbitron, sans-serif !important;
   @include banner-bg('../NebulaGaming/assets/images/nebulaaboutbanner.jpg');
   
   .row {
@@ -540,6 +543,10 @@ header {
           margin-bottom: 1.5rem;
           @include text-glow();
         }
+        p{
+          @include text-glow();
+
+        }
         
         .banner-text {
           font-size: 1rem;
@@ -553,7 +560,6 @@ header {
 
 // About Content
 .aboutContentContainer {
-  font-family: Orbitron, sans-serif !important;
   padding: 0 3rem;
   background: rgba(46, 46, 120, 0.7);
   
@@ -621,7 +627,6 @@ header {
       font-size: 1.5rem;
       max-width: 800px;
       margin: 0 auto;
-      color: $white;
     }
   }
 }
@@ -660,7 +665,6 @@ header {
     }
   
     h4 {
-      color: $blue;
       margin-bottom: 1rem;
     }
   
@@ -673,7 +677,6 @@ header {
 
 // Matches Banner
 .matchesBannerContainer {
-  font-family: Orbitron, sans-serif !important;
   @include banner-bg('../NebulaGaming/assets/images/nebulamatchbanner.jpg');
   height: 90vh;
   
@@ -697,7 +700,6 @@ header {
           font-size: 3.5rem;
           font-weight: bold;
           margin-bottom: 1.5rem;
-          color: $white;
           @include text-glow();
         }
         
@@ -715,7 +717,6 @@ header {
 
 // Matches Content
 .matchesContentContainer {
-  font-family: Orbitron, sans-serif !important;
   padding: 5rem 0;
   background: rgba(46, 46, 120, 0.7);
   
@@ -817,7 +818,6 @@ header {
     @include gradient-border();
     
     h2 {
-      color: $white;
       font-size: 2rem;
       margin-bottom: 1.5rem;
       
@@ -870,7 +870,6 @@ header {
     h4 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
-      color: $white;
     }
     
     .match-date {

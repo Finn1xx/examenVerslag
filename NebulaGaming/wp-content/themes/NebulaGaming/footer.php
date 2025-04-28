@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row footer-top">
       <div class="col-md-4">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/nebulalogo.png" alt="Nebula Logo" class="footer-logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/nebulalogo.png" alt="Nebula Logo">
         <p class="footer-tagline">Level up. Lock in. Let’s dominate.</p>
       </div>
       <div class="col-md-4">

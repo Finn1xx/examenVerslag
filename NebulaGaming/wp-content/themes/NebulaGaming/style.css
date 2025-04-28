@@ -17,14 +17,26 @@ Author: Finn Siepers
   font-style: normal;
 }
 * {
-  font-family: Audiowide, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, a {
+  font-family: Audiowide, sans-serif !important;
+}
+
+strong {
+  font-family: Orbitron, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
   color: #fff;
+  text-decoration: none;
+}
+
+p, h2 {
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 body {
@@ -127,7 +139,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .homeBannerContainer {
-  font-family: Orbitron, sans-serif !important;
   background-image: url("../NebulaGaming/assets/images/nebulabackgroundbanner.jpg");
   background-size: cover;
   background-position: center;
@@ -190,7 +201,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .homeContainer {
-  font-family: Orbitron, sans-serif !important;
   padding: 5rem 2rem 5rem 2rem !important;
 }
 .homeContainer .content-top-row .content-top-wrapper {
@@ -287,7 +297,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   height: 70vh;
 }
 .homeContainer .row:last-of-type .col-12 {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 2rem;
   border-radius: 12px;
   color: #fff;
@@ -325,7 +335,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background: linear-gradient(135deg, rgb(24, 216, 252), rgb(247, 47, 146));
   color: #fff;
   padding: 3rem 0 1rem;
-  font-family: Orbitron, sans-serif;
   position: relative;
   z-index: 5;
 }
@@ -333,13 +342,12 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   margin-bottom: 2rem;
 }
 ._footer .footer-top h5 {
+  font-family: Audiowide, sans-serif !important;
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #fff;
 }
-._footer .footer-top .footer-logo {
-  max-width: 150px;
-  margin-bottom: 1rem;
+._footer .footer-top img {
+  max-width: 250px;
 }
 ._footer .footer-top .footer-tagline {
   font-size: 0.95rem;
@@ -352,10 +360,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 ._footer .footer-top .footer-menu li {
   margin-bottom: 0.5rem;
 }
-._footer .footer-top .footer-menu li a {
-  color: #fff;
-  text-decoration: none;
-}
 ._footer .footer-top .footer-menu li a:hover {
   color: #000;
 }
@@ -366,7 +370,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   padding: 0;
 }
 ._footer .footer-top .social-icons li a {
-  color: #fff;
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
@@ -387,7 +390,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 .contactContainer h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: #fff;
 }
 .contactContainer p {
   font-size: 1.1rem;
@@ -400,7 +402,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   border: none;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
 }
 .contactContainer form input[type=submit] {
   background-color: rgb(247, 47, 146);
@@ -415,7 +416,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .aboutBannerContainer {
-  font-family: Orbitron, sans-serif !important;
   background-image: url("../NebulaGaming/assets/images/nebulaaboutbanner.jpg");
   background-size: cover;
   background-position: center;
@@ -455,6 +455,10 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
   animation: textPulse 3s infinite ease-in-out;
 }
+.aboutBannerContainer .row .col-9 .about-banner-content p {
+  text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
+  animation: textPulse 3s infinite ease-in-out;
+}
 .aboutBannerContainer .row .col-9 .about-banner-content .banner-text {
   font-size: 1rem;
   line-height: 1.6;
@@ -462,7 +466,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .aboutContentContainer {
-  font-family: Orbitron, sans-serif !important;
   padding: 0 3rem;
   background: rgba(46, 46, 120, 0.7);
 }
@@ -541,7 +544,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   font-size: 1.5rem;
   max-width: 800px;
   margin: 0 auto;
-  color: #fff;
 }
 
 .membersGrid {
@@ -574,7 +576,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 .membersGrid .memberCard h4 {
-  color: rgb(24, 216, 252);
   margin-bottom: 1rem;
 }
 .membersGrid .memberCard p {
@@ -583,7 +584,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .matchesBannerContainer {
-  font-family: Orbitron, sans-serif !important;
   background-image: url("../NebulaGaming/assets/images/nebulamatchbanner.jpg");
   background-size: cover;
   background-position: center;
@@ -621,7 +621,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  color: #fff;
   text-shadow: 0 0 15px rgba(247, 47, 146, 0.7);
   animation: textPulse 3s infinite ease-in-out;
 }
@@ -635,7 +634,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .matchesContentContainer {
-  font-family: Orbitron, sans-serif !important;
   padding: 5rem 0;
   background: rgba(46, 46, 120, 0.7);
 }
@@ -755,7 +753,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   opacity: 0.7;
 }
 .matchesContentContainer .matches-static-content h2 {
-  color: #fff;
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -799,7 +796,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 .recent-matches-widget .recent-match-item h4 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: #fff;
 }
 .recent-matches-widget .recent-match-item .match-date {
   font-size: 0.85rem;
