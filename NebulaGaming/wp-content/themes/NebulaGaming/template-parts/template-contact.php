@@ -9,7 +9,7 @@ Template Name: Contact
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php bloginfo('name'); ?> | Contact</title>
+    <title><?php bloginfo('name'); ?></title>
     <?php wp_head(); ?>
 </head>
 <?php get_header(); ?>
@@ -18,7 +18,7 @@ Template Name: Contact
         <div class="row justify-content-center">
             <div class="col-10 col-md-6 text-center">
                 <h1 class="mb-4"><?php the_title()?></h1>
-                <p class="mb-5"><?php the_content()?></p>
+                <p><?php the_content()?></p>
 
                 <?php echo do_shortcode('[contact-form-7 id="9ec129f" title="Contactformulier 1"]'); ?>
             </div>

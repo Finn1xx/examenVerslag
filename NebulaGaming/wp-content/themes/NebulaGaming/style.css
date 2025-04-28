@@ -51,6 +51,10 @@ a {
   text-decoration: none;
 }
 
+label {
+  width: 100%;
+}
+
 header {
   position: relative;
   background: linear-gradient(90deg, rgb(24, 216, 252), rgb(247, 47, 146));
