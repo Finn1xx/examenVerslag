@@ -59,9 +59,7 @@ function nebula_register_member_cpt() {
 }
 add_action('init', 'nebula_register_member_cpt');
 
-/**
- * Register Custom Post Type for Matches
- */
+
 function nebula_register_matches_post_type() {
     $labels = array(
         'name'               => 'Matches',
@@ -96,9 +94,7 @@ function nebula_register_matches_post_type() {
 }
 add_action('init', 'nebula_register_matches_post_type');
 
-/**
- * Function to display the 5 most recent matches
- */
+
 function nebula_display_recent_matches($count = 5) {
     $output = '';
     
@@ -121,12 +117,10 @@ function nebula_display_recent_matches($count = 5) {
             $output .= '<h4>' . get_the_title() . '</h4>';
             
             if (function_exists('get_field')) {
-                // Add match date
                 if (get_field('match_date')) {
                     $output .= '<div class="match-date">' . get_field('match_date') . '</div>';
                 }
                 
-                // Add game and team
                 $output .= '<div class="match-meta">';
                 if (get_field('game')) {
                     $output .= '<span class="match-game">' . get_field('game') . '</span>';

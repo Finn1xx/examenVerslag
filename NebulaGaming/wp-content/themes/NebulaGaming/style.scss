@@ -235,7 +235,6 @@ header {
 
     .col-12 {
       h1, h3 {
-        padding-left: 5rem;
         font-weight: bold;
         display: flex;
         align-items: center;
@@ -259,6 +258,7 @@ header {
         display: flex;
         align-items: flex-end;
         padding-bottom: 2rem;
+        justify-content: center;
 
         h1 {
           font-size: 5rem;
@@ -268,7 +268,7 @@ header {
 
       &:last-of-type {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         flex-direction: column;
 
         h3 {
@@ -357,7 +357,13 @@ header {
     }
 
     &:last-of-type {
-      @include banner-bg('../NebulaGaming/assets/images/nebulabanner.jpg');
+
+      background-image: url('../NebulaGaming/assets/images/nebulabanner.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      
       border-radius: 16px;
       overflow: hidden;
       padding: 4rem;

@@ -152,7 +152,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   z-index: 2;
 }
 .homeBannerContainer .row .col-12 h1, .homeBannerContainer .row .col-12 h3 {
-  padding-left: 5rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -174,6 +173,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   display: flex;
   align-items: flex-end;
   padding-bottom: 2rem;
+  justify-content: center;
 }
 .homeBannerContainer .row .col-12:first-of-type h1 {
   font-size: 5rem;
@@ -181,7 +181,7 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 .homeBannerContainer .row .col-12:last-of-type {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
 }
 .homeBannerContainer .row .col-12:last-of-type h3 {
@@ -285,16 +285,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   overflow: hidden;
   padding: 4rem;
   height: 70vh;
-}
-.homeContainer .row:last-of-type::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
 }
 .homeContainer .row:last-of-type .col-12 {
   background-color: rgba(0, 0, 0, 0.5);
