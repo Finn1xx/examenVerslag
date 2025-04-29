@@ -156,7 +156,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .homeBannerContainer {
-  background-image: url("../NebulaGaming/assets/images/nebulabackgroundbanner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -236,7 +235,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 .homeContainer .content-top-row .content-top-wrapper {
   position: relative;
-  background-image: url("../NebulaGaming/assets/images/nebulagamingbanner2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -318,7 +316,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   line-height: 1.7;
 }
 .homeContainer .row:last-of-type {
-  background-image: url("../NebulaGaming/assets/images/nebulabanner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -427,7 +424,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .aboutBannerContainer {
-  background-image: url("../NebulaGaming/assets/images/nebulaaboutbanner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -522,7 +518,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .membersBanner {
-  background-image: url("../NebulaGaming/assets/images/nebulamemberbanner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -619,7 +614,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
 }
 
 .matchesBannerContainer {
-  background-image: url("../NebulaGaming/assets/images/nebulamatchbanner.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

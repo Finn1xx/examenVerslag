@@ -54,8 +54,7 @@ $light-gray: #ddd;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-@mixin banner-bg($img-path) {
-  background-image: url($img-path);
+@mixin banner-bg {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -241,7 +240,7 @@ header {
 }
 
 .homeBannerContainer {
-  @include banner-bg('../NebulaGaming/assets/images/nebulabackgroundbanner.jpg');
+  @include banner-bg;
   min-height: 85vh;
   color: $white;
 
@@ -308,7 +307,7 @@ header {
 
   .content-top-row .content-top-wrapper {
     position: relative;
-    @include banner-bg('../NebulaGaming/assets/images/nebulagamingbanner2.jpg');
+    @include banner-bg;
     display: flex;
     align-items: center;
     border-radius: 12px;
@@ -380,8 +379,6 @@ header {
     }
 
     &:last-of-type {
-
-      background-image: url('../NebulaGaming/assets/images/nebulabanner.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -513,7 +510,7 @@ header {
 }
 
 .aboutBannerContainer {
-  @include banner-bg('../NebulaGaming/assets/images/nebulaaboutbanner.jpg');
+  @include banner-bg;
   
   .row {
     height: 100vh !important;
@@ -600,7 +597,7 @@ header {
 }
 
 .membersBanner {
-  @include banner-bg('../NebulaGaming/assets/images/nebulamemberbanner.jpg');
+  @include banner-bg;
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -682,7 +679,7 @@ header {
 }
 
 .matchesBannerContainer {
-  @include banner-bg('../NebulaGaming/assets/images/nebulamatchbanner.jpg');
+  @include banner-bg;
   height: 90vh;
   
   .row {

@@ -17,7 +17,7 @@ Template Name: About
 <body>
     <?php get_header(); ?>
     
-    <div class="aboutBannerContainer container-fluid">
+    <div class="aboutBannerContainer container-fluid" style="background-image: url('<?php the_field('bannerimage'); ?>');">
         <div class="row">
             <div class="col-9">
                 <div class="aboutBannerContent">
@@ -46,9 +46,7 @@ Template Name: About
                         <?php } ?>
                     </div>
                     <div class="col-7 founderTextCol">
-    
-                            <p><?php the_field('content'); ?></p>
-                       
+                        <p><?php the_field('content'); ?></p>
                     </div>
                 </div>
             </div>

@@ -15,51 +15,49 @@ Template Name: members
     <?php wp_head() ?>
 </head>
     <?php get_header(); ?>
-    <div class="membersBanner container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="membersBannerContent">
-                <h1><?php the_title(); ?></h1>
-                <span><?php the_content() ?></span>
+    <div class="membersBanner container-fluid" style="background-image: url('<?php the_field('bannerimage'); ?>');">
+        <div class="row">
+            <div class="col-12">
+                <div class="membersBannerContent">
+                    <h1><?php the_title(); ?></h1>
+                    <span><?php the_content() ?></span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="membersGrid container-fluid">
-    <div class="row justify-content-evenly">
-        <?php
-        $members = new WP_Query(array(
-            'post_type' => 'member',
-            'posts_per_page' => -1
-        ));
+    <div class="membersGrid container-fluid">
+        <div class="row justify-content-evenly">
+            <?php
+            $members = new WP_Query(array(
+                'post_type' => 'member',
+                'posts_per_page' => -1
+            ));
 
-        if ($members->have_posts()) :
-            while ($members->have_posts()) : $members->the_post();
-        ?>
-<div class="col-5 memberCard">
-  <div class="card-content">
-    <h2><?php the_title(); ?></h2>
-
-    <?php $image = get_field('image'); ?>
-    <?php if ($image): ?>
-      <div class="memberPortrait">
-        <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" />
-      </div>
-    <?php endif; ?>
-
-    <h4>Game: <?php the_field('type_game'); ?></h4>
-    <p><?php the_field('description'); ?></p>
-  </div>
-</div>
-        <?php
-            endwhile;
-            wp_reset_postdata();
-        else :
-            echo '<p>No members found.</p>';
-        endif;
-        ?>
+            if ($members->have_posts()) :
+                while ($members->have_posts()) : $members->the_post();
+            ?>
+            <div class="col-5 memberCard">
+              <div class="card-content">
+                <h2><?php the_title(); ?></h2>
+                    
+                <?php $image = get_field('image'); ?>
+                <?php if ($image): ?>
+                  <div class="memberPortrait">
+                    <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" />
+                  </div>
+                <?php endif; ?>
+                
+                <h4>Game: <?php the_field('type_game'); ?></h4>
+                <p><?php the_field('description'); ?></p>
+              </div>
+            </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+                endif;
+            ?>
+        </div>
     </div>
-</div>
     <?php get_footer(); ?>
 </html>

@@ -142,7 +142,4 @@ function nebula_display_recent_matches($count = 5) {
     
     return $output;
 }
-
-// Usage example: echo nebula_display_recent_matches();
-
 ?>

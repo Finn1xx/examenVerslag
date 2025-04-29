@@ -16,7 +16,7 @@ Template Name: Home
 </head>
     <?php get_header(); ?>
     <body>
-        <div class="homeBannerContainer container-fluid">
+        <div class="homeBannerContainer container-fluid" style="background-image: url('<?php the_field('bannerimage'); ?>');">
             <div class="row">
                 <div class="col-12">
                     <h1><?php the_title(); ?></h1>
@@ -31,28 +31,28 @@ Template Name: Home
             </div>
         </div>
         <div id="homeContainer" class="homeContainer container-fluid">
-    <div class="row content-top-row">
-        <div class="col-12">
-            <div class="content-top-wrapper">
-                <h2><?php the_field('content_top'); ?></h2>
+            <div class="row content-top-row">
+                <div class="col-12">
+                    <div class="content-top-wrapper" style="background-image: url('<?php the_field('contentimage1'); ?>');">
+                        <h2><?php the_field('content_top'); ?></h2>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-evenly">
+                <div class="col-5">
+                    <h3><?php the_field('content_left'); ?></h3>
+                </div>
+                <div class="col-5">
+                    <h3><?php the_field('content_right'); ?></h3>
+                </div>
+            </div>
+            <div class="row" style="background-image: url('<?php the_field('contentimage2'); ?>');">
+                <div class="col-12">
+                    <h3><?php the_field('content_bottom'); ?></h3>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="row justify-content-evenly">
-        <div class="col-5">
-            <h3><?php the_field('content_left'); ?></h3>
-        </div>
-        <div class="col-5">
-            <h3><?php the_field('content_right'); ?></h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <h3><?php the_field('content_bottom'); ?></h3>
-        </div>
-    </div>
-</div>
     </body>
     <?php get_footer(); ?>
 </html>

@@ -19,7 +19,6 @@ Template Name: Contact
             <div class="col-10 col-md-6 text-center">
                 <h1 class="mb-4"><?php the_title()?></h1>
                 <p><?php the_content()?></p>
-
                 <?php echo do_shortcode('[contact-form-7 id="9ec129f" title="Contactformulier 1"]'); ?>
             </div>
         </div>

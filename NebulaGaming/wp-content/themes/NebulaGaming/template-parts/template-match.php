@@ -17,9 +17,7 @@
 </head>
 <body>
 <?php get_header(); ?>
-
-    <!-- Matches Banner Section -->
-    <div class="matchesBannerContainer">
+    <div class="matchesBannerContainer" style="background-image: url('<?php the_field('bannerimage'); ?>');">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -32,17 +30,13 @@
         </div>
     </div>
     
-    <!-- Matches Content Section -->
     <div class="matchesContentContainer">
         <div class="container">
             <div class="row">
-                <!-- Left Column - Recent Matches -->
                 <div class="col-md-6">
                     <div class="matchesList">
                         <h2>Recent Matches</h2>
-                        
                         <?php
-                        // Get recent matches
                         $args = array(
                             'post_type' => 'matches',
                             'posts_per_page' => 5,
@@ -92,11 +86,10 @@
                     </div>
                 </div>
                 
-                <!-- Right Column - Static Content -->
                 <div class="col-md-6">
                     <div class="matchesStaticContent">
-                            <h2>About Our Matches</h2>
-                            <p><?php echo get_field('aboutContent'); ?></p>
+                        <h2>About Our Matches</h2>
+                        <p><?php echo get_field('aboutContent'); ?></p>
                     </div>
                 </div>
             </div>
