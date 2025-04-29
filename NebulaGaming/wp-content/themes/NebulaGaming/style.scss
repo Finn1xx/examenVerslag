@@ -473,7 +473,11 @@ header {
 .contactContainer {
   background: linear-gradient(180deg, rgba(24,216,252,0.1), rgba(247,47,146,0.1));
   padding: 5rem 2rem;
-
+  .wpcf7-response-output{
+    color: #e1e1e1;
+    font-weight: bold;
+  }
+  
   h1 {
     font-size: 3rem;
     font-weight: bold;

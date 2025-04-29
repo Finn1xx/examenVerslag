@@ -393,6 +393,10 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   background: linear-gradient(180deg, rgba(24, 216, 252, 0.1), rgba(247, 47, 146, 0.1));
   padding: 5rem 2rem;
 }
+.contactContainer .wpcf7-response-output {
+  color: #e1e1e1;
+  font-weight: bold;
+}
 .contactContainer h1 {
   font-size: 3rem;
   font-weight: bold;
