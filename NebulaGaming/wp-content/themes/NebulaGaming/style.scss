@@ -152,7 +152,6 @@ label{
   width: 100%;
 }
 
-// Header
 header {
   position: relative;
   @include gradient-bg();
@@ -241,7 +240,6 @@ header {
   }
 }
 
-// Home Banner
 .homeBannerContainer {
   @include banner-bg('../NebulaGaming/assets/images/nebulabackgroundbanner.jpg');
   min-height: 85vh;
@@ -299,7 +297,6 @@ header {
   }
 }
 
-// Home Container
 .homeContainer {
   padding: 5rem 2rem 5rem 2rem !important;
   .col-5{
@@ -389,7 +386,6 @@ header {
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
-      
       border-radius: 16px;
       overflow: hidden;
       padding: 4rem;
@@ -412,9 +408,6 @@ header {
   }
 }
 
-
-
-// Footer
 ._footer {
   @include gradient-bg(135deg);
   color: $white;
@@ -422,7 +415,7 @@ header {
   position: relative;
   z-index: 5;
 
-  .footer-top {
+  .footerTop {
     margin-bottom: 2rem;
 
     h5 {
@@ -435,11 +428,11 @@ header {
       max-width: 250px;
     }
 
-    .footer-tagline {
+    .footerTagline {
       font-size: 0.95rem;
     }
 
-    .footer-menu {
+    .footerMenu {
       list-style: none;
       padding: 0;
 
@@ -455,7 +448,7 @@ header {
       }
     }
 
-    .social-icons {
+    .socialIcons {
       list-style: none;
       display: flex;
       gap: 1rem;
@@ -472,7 +465,7 @@ header {
     }
   }
 
-  .footer-bottom {
+  .footerBottom {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 1rem;
     font-size: 0.9rem;
@@ -480,7 +473,6 @@ header {
   }
 }
 
-// Contact
 .contactContainer {
   background: linear-gradient(180deg, rgba(24,216,252,0.1), rgba(247,47,146,0.1));
   padding: 5rem 2rem;
@@ -536,7 +528,7 @@ header {
       align-items: center;
       justify-content: center;
       
-      .about-banner-content {
+      .aboutBannerContent {
         text-align: center;
         
         h1 {
@@ -550,7 +542,7 @@ header {
 
         }
         
-        .banner-text {
+        .bannerText {
           font-size: 1rem;
           line-height: 1.6;
           margin: 0 auto;
@@ -560,23 +552,22 @@ header {
   }
 }
 
-// About Content
 .aboutContentContainer {
   padding: 0 3rem;
   background: rgba(46, 46, 120, 0.7);
   
-  .row .col-12 .about-content {
+  .row .col-12 .aboutContent {
     @include card-style();
     
-    .founder-section {
+    .founderSection {
       margin: 0;
       
-      .founder-image-col {
+      .founderImageCol {
         display: flex;
         justify-content: center;
         align-items: flex-start;
         
-        .founder-image {
+        .founderImage {
           width: 100%;
           
           img {
@@ -595,7 +586,7 @@ header {
         }
       }
       
-      .founder-text-col {
+      .founderTextCol {
         display: flex;
         align-items: center;
         
@@ -608,7 +599,6 @@ header {
   }
 }
 
-// Members
 .membersBanner {
   @include banner-bg('../NebulaGaming/assets/images/nebulamemberbanner.jpg');
   height: 80vh;
@@ -659,12 +649,10 @@ header {
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 20px rgba(24, 216, 252, 0.7);
-
     }
   
     h2 {
       font-family: Audiowide, sans-serif !important;
-
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 1rem;
@@ -693,7 +681,6 @@ header {
   }
 }
 
-// Matches Banner
 .matchesBannerContainer {
   @include banner-bg('../NebulaGaming/assets/images/nebulamatchbanner.jpg');
   height: 90vh;
@@ -711,7 +698,7 @@ header {
       align-items: center;
       justify-content: center;
       
-      .matches-banner-content {
+      .matchesBannerContent {
         text-align: center;
         
         h1 {
@@ -733,7 +720,6 @@ header {
   }
 }
 
-// Matches Content
 .matchesContentContainer {
   padding: 5rem 0;
   background: rgba(46, 46, 120, 0.7);
@@ -742,11 +728,10 @@ header {
     @include heading-style();
   }
   
-  // Left column - Matches List
-  .matches-list {
+  .matchesList {
     padding-right: 2rem;
     
-    .match-card {
+    .matchesCard {
       @include card-style();
       padding: 1.5rem;
       margin-bottom: 2rem;
@@ -777,49 +762,49 @@ header {
         }
       }
       
-      .match-date {
+      .matchDate {
         font-size: 1rem;
         margin-bottom: 0.5rem;
         color: $blue;
         font-weight: bold;
       }
       
-      .match-title {
+      .matchTitle {
         font-size: 1.5rem;
         margin-bottom: 0.75rem;
         color: $white;
       }
       
-      .match-meta {
+      .matchMeta {
         display: flex;
         margin-bottom: 1rem;
         flex-wrap: wrap;
         gap: 1.5rem;
         
-        .match-game, .match-team {
+        .matchGame, .matchTeam {
           display: flex;
           align-items: center;
           
-          .meta-label {
+          .matchLabel {
             font-weight: bold;
             color: $pink;
             margin-right: 0.5rem;
           }
           
-          .meta-value {
+          .metaValue {
             color: $light-gray;
           }
         }
       }
       
-      .match-description {
+      .metaDescription {
         color: #ccc;
         font-size: 0.95rem;
         line-height: 1.6;
       }
     }
     
-    .no-matches {
+    .noMatches {
       padding: 2rem;
       text-align: center;
       background: $card-bg;
@@ -828,8 +813,7 @@ header {
     }
   }
   
-  // Right column - Static Content
-  .matches-static-content {
+  .matchesStaticContent {
     @include card-style();
     height: 100%;
     position: relative;
@@ -869,11 +853,10 @@ header {
   }
 }
 
-// Recent Matches Widget
-.recent-matches-widget {
+.recentMatchesWidget {
   margin: 1.5rem 0;
   
-  .recent-match-item {
+  .recentMatchItem {
     padding: 1rem;
     border-bottom: 1px solid rgba(24, 216, 252, 0.2);
     transition: all 0.3s ease;
@@ -891,17 +874,17 @@ header {
       margin-bottom: 0.5rem;
     }
     
-    .match-date {
+    .matchDate {
       font-size: 0.85rem;
       color: $blue;
       margin-bottom: 0.25rem;
     }
     
-    .match-meta {
+    .matchMeta {
       font-size: 0.85rem;
       color: $light-gray;
       
-      .match-game {
+      .matchGame {
         color: $pink;
       }
     }

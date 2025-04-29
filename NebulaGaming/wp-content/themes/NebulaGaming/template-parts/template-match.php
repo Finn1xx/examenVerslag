@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="matches-banner-content">
+                    <div class="matchesBannerContent">
                         <h1><?php the_title(); ?></h1>
                         <span><?php the_content() ?></span>
                     </div>
@@ -38,7 +38,7 @@
             <div class="row">
                 <!-- Left Column - Recent Matches -->
                 <div class="col-md-6">
-                    <div class="matches-list">
+                    <div class="matchesList">
                         <h2>Recent Matches</h2>
                         
                         <?php
@@ -56,23 +56,23 @@
                             while ($matches_query->have_posts()) : $matches_query->the_post();
                         ?>
                         
-                        <div class="match-card">
-                            <div class="match-date">
+                        <div class="matchesCard">
+                            <div class="matchDate">
                                 <?php echo get_field('match_date'); ?>
                             </div>
                             <div class="match-details">
-                                <h3 class="match-title"><?php the_title(); ?></h3>
-                                <div class="match-meta">
-                                    <div class="match-game">
-                                        <span class="meta-label">Game:</span> 
-                                        <span class="meta-value"><?php echo get_field('game'); ?></span>
+                                <h3 class="matchTitle"><?php the_title(); ?></h3>
+                                <div class="matchMeta">
+                                    <div class="matchGame">
+                                        <span class="matchLabel">Game:</span> 
+                                        <span class="metaValue"><?php echo get_field('game'); ?></span>
                                     </div>
-                                    <div class="match-team">
-                                        <span class="meta-label">Team:</span> 
-                                        <span class="meta-value"><?php echo get_field('team'); ?></span>
+                                    <div class="matchTeam">
+                                        <span class="matchLabel">Team:</span> 
+                                        <span class="metaValue"><?php echo get_field('team'); ?></span>
                                     </div>
                                 </div>
-                                <div class="match-description">
+                                <div class="metaDescription">
                                     <?php echo get_field('description'); ?>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                         else :
                         ?>
                         
-                        <div class="no-matches">
+                        <div class="noMatches">
                             <p>No matches found</p>
                         </div>
                         
@@ -94,7 +94,7 @@
                 
                 <!-- Right Column - Static Content -->
                 <div class="col-md-6">
-                    <div class="matches-static-content">
+                    <div class="matchesStaticContent">
                             <h2>About Our Matches</h2>
                             <p><?php echo get_field('aboutContent'); ?></p>
                     </div>

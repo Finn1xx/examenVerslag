@@ -20,9 +20,9 @@ Template Name: About
     <div class="aboutBannerContainer container-fluid">
         <div class="row">
             <div class="col-9">
-                <div class="about-banner-content">
+                <div class="aboutBannerContent">
                     <h1><?php the_title(); ?></h1>
-                    <div class="banner-text">
+                    <div class="bannerText">
                         <h2><?php the_content(); ?></h2>
                     </div>
                 </div>
@@ -33,19 +33,19 @@ Template Name: About
     <div class="aboutContentContainer container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="about-content">
-                <div class="row founder-section">
-                    <div class="col-5 founder-image-col">
+            <div class="aboutContent">
+                <div class="row founderSection">
+                    <div class="col-5 founderImageCol">
                         <?php 
                         $founder_image = get_field('image');
                         if($founder_image) { 
                         ?>
-                            <div class="founder-image">
+                            <div class="founderImage">
                                 <img src="<?php echo esc_url($founder_image['url']); ?>" alt="<?php echo esc_attr($founder_image['alt']); ?>" />
                             </div>
                         <?php } ?>
                     </div>
-                    <div class="col-7 founder-text-col">
+                    <div class="col-7 founderTextCol">
     
                             <p><?php the_field('content'); ?></p>
                        

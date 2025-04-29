@@ -108,12 +108,12 @@ function nebula_display_recent_matches($count = 5) {
     $matches_query = new WP_Query($args);
     
     if ($matches_query->have_posts()) {
-        $output .= '<div class="recent-matches-widget">';
+        $output .= '<div class="recentMatchesWidget">';
         
         while ($matches_query->have_posts()) {
             $matches_query->the_post();
             
-            $output .= '<div class="recent-match-item">';
+            $output .= '<div class="recentMatchItem">';
             $output .= '<h4>' . get_the_title() . '</h4>';
             
             if (function_exists('get_field')) {
