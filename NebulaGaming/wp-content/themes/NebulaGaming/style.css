@@ -749,9 +749,6 @@ header .container-fluid .row .col-7 nav ul li a:hover::after {
   color: rgb(247, 47, 146);
   margin-right: 0.5rem;
 }
-.matchesContentContainer .matchesList .matchesCard .matchMeta .matchGame .metaValue, .matchesContentContainer .matchesList .matchesCard .matchMeta .matchTeam .metaValue {
-  color: #ddd;
-}
 .matchesContentContainer .matchesList .matchesCard .metaDescription {
   color: #ccc;
   font-size: 0.95rem;

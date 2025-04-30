@@ -59,11 +59,11 @@
                                 <div class="matchMeta">
                                     <div class="matchGame">
                                         <span class="matchLabel">Game:</span> 
-                                        <span class="metaValue"><?php echo get_field('game'); ?></span>
+                                        <span><?php echo get_field('game'); ?></span>
                                     </div>
                                     <div class="matchTeam">
                                         <span class="matchLabel">Team:</span> 
-                                        <span class="metaValue"><?php echo get_field('team'); ?></span>
+                                        <span><?php echo get_field('team'); ?></span>
                                     </div>
                                 </div>
                                 <div class="metaDescription">
