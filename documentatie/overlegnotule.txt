@@ -1,0 +1,24 @@
+ik heb met pepita afgesproken op samen te gaan kijken naar mijn pagina. we zijn heel diep ingegaan op de detais van de pagina. pepita heeft een goed oog voor design en hier heeft zij een paar verbeterpunen mee gezien:
+
+komma home page banner weg
+homepagebanner alles centreren
+homepage kleine vakken titel moet bold
+hele website meer verschillende letter type
+homepage zwarte vlak nog donkerder
+
+footer logo groter
+footer text onder logo uitlijnen met contact link
+footer twitter logo naar x
+
+about page zelfde kleur text in plaats van gradient
+
+member page banner koptext onbreekt
+member page koptext dikker bij naam
+
+matches page alle vlakken gelijk aan dezelfde paginas
+
+contact page text net zo breedt als de blokken
+contact page button net zo breedt als de label
+
+na overleg is er besproken al deze punten te vewerken om zo'n perfect mogelijke website te maken.
+
